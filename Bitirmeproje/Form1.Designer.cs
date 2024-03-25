@@ -36,6 +36,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(1, 1);
             dataGridView1.Name = "dataGridView1";
@@ -53,6 +54,7 @@
             button1.TabIndex = 1;
             button1.Text = "Verileri Güncelle";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
