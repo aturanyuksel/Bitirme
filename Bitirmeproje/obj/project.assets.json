@@ -2,6 +2,9 @@
   "version": 3,
   "targets": {
     "net7.0-windows7.0": {
+      "Chart.js/3.7.1": {
+        "type": "package"
+      },
       "EntityFramework/6.4.4": {
         "type": "package",
         "dependencies": {
@@ -131,6 +134,37 @@
           "runtimes/win-x86/native/sni.dll": {
             "assetType": "native",
             "rid": "win-x86"
+          }
+        }
+      },
+      "SciChart/8.3.0.28019": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/SciChart.Charting.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/SciChart.Core.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/SciChart.Data.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/SciChart.Drawing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/SciChart.Charting.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/SciChart.Core.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/SciChart.Data.dll": {
+            "related": ".xml"
+          },
+          "lib/net6.0-windows7.0/SciChart.Drawing.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -393,6 +427,19 @@
     }
   },
   "libraries": {
+    "Chart.js/3.7.1": {
+      "sha512": "gJunTMEueTNdA5Hp92J9sv363msSemW+GSy1VtbrwjxCaMrp+/mgB20EdVezbP34dbM+h+A8G5XbEuL6tOJoCw==",
+      "type": "package",
+      "path": "chart.js/3.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "chart.js.3.7.1.nupkg.sha512",
+        "chart.js.nuspec",
+        "content/Scripts/chart.js",
+        "content/Scripts/chart.min.js"
+      ]
+    },
     "EntityFramework/6.4.4": {
       "sha512": "yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "type": "package",
@@ -673,6 +720,43 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "SciChart/8.3.0.28019": {
+      "sha512": "Cz9n5RYecKL5yCCT51s90lC97Cq7h29XLHJf9yTqx5/B4Iw1bPv4Z9kmBJ8S2eeExWP0QyN3GYcXbQWk0vElRw==",
+      "type": "package",
+      "path": "scichart/8.3.0.28019",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.txt",
+        "images/platform-app-icons_scichart-windows.png",
+        "lib/net462/SciChart.Charting.dll",
+        "lib/net462/SciChart.Charting.xml",
+        "lib/net462/SciChart.Core.dll",
+        "lib/net462/SciChart.Core.xml",
+        "lib/net462/SciChart.Data.dll",
+        "lib/net462/SciChart.Data.xml",
+        "lib/net462/SciChart.Drawing.dll",
+        "lib/net462/SciChart.Drawing.xml",
+        "lib/net6.0-windows7.0/SciChart.Charting.dll",
+        "lib/net6.0-windows7.0/SciChart.Charting.xml",
+        "lib/net6.0-windows7.0/SciChart.Core.dll",
+        "lib/net6.0-windows7.0/SciChart.Core.xml",
+        "lib/net6.0-windows7.0/SciChart.Data.dll",
+        "lib/net6.0-windows7.0/SciChart.Data.xml",
+        "lib/net6.0-windows7.0/SciChart.Drawing.dll",
+        "lib/net6.0-windows7.0/SciChart.Drawing.xml",
+        "lib/netcoreapp3.1/SciChart.Charting.dll",
+        "lib/netcoreapp3.1/SciChart.Charting.xml",
+        "lib/netcoreapp3.1/SciChart.Core.dll",
+        "lib/netcoreapp3.1/SciChart.Core.xml",
+        "lib/netcoreapp3.1/SciChart.Data.dll",
+        "lib/netcoreapp3.1/SciChart.Data.xml",
+        "lib/netcoreapp3.1/SciChart.Drawing.dll",
+        "lib/netcoreapp3.1/SciChart.Drawing.xml",
+        "scichart.8.3.0.28019.nupkg.sha512",
+        "scichart.nuspec"
       ]
     },
     "Stub.System.Data.SQLite.Core.NetStandard/1.0.118": {
@@ -1211,6 +1295,8 @@
   },
   "projectFileDependencyGroups": {
     "net7.0-windows7.0": [
+      "Chart.js >= 3.7.1",
+      "SciChart >= 8.3.0.28019",
       "System.Data.SQLite >= 1.0.118"
     ]
   },
@@ -1264,6 +1350,14 @@
       "net7.0-windows7.0": {
         "targetAlias": "net7.0-windows",
         "dependencies": {
+          "Chart.js": {
+            "target": "Package",
+            "version": "[3.7.1, )"
+          },
+          "SciChart": {
+            "target": "Package",
+            "version": "[8.3.0.28019, )"
+          },
           "System.Data.SQLite": {
             "target": "Package",
             "version": "[1.0.118, )"

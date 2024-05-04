@@ -9,7 +9,7 @@ namespace Bitirmeproje
 {
     public class baglan
     {
-        public static SQLiteConnection connection = new SQLiteConnection("Data source=C:\\Bitirme.db;Version=3;");
+        public static SQLiteConnection connection = new SQLiteConnection("Data source=C:\\proje.db;Version=3;");
 
     }
 }

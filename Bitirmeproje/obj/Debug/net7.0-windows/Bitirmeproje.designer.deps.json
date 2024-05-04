@@ -6,6 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v7.0": {
+      "Chart.js/3.7.1": {},
       "EntityFramework/6.4.4": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -103,6 +104,26 @@
             "rid": "win-x86",
             "assetType": "native",
             "fileVersion": "4.6.25512.1"
+          }
+        }
+      },
+      "SciChart/8.3.0.28019": {
+        "runtime": {
+          "lib/net6.0-windows7.0/SciChart.Charting.dll": {
+            "assemblyVersion": "8.3.0.28019",
+            "fileVersion": "8.3.0.28019"
+          },
+          "lib/net6.0-windows7.0/SciChart.Core.dll": {
+            "assemblyVersion": "8.3.0.28019",
+            "fileVersion": "8.3.0.28019"
+          },
+          "lib/net6.0-windows7.0/SciChart.Data.dll": {
+            "assemblyVersion": "8.3.0.28019",
+            "fileVersion": "8.3.0.28019"
+          },
+          "lib/net6.0-windows7.0/SciChart.Drawing.dll": {
+            "assemblyVersion": "8.3.0.28019",
+            "fileVersion": "8.3.0.28019"
           }
         }
       },
@@ -331,6 +352,13 @@
     }
   },
   "libraries": {
+    "Chart.js/3.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gJunTMEueTNdA5Hp92J9sv363msSemW+GSy1VtbrwjxCaMrp+/mgB20EdVezbP34dbM+h+A8G5XbEuL6tOJoCw==",
+      "path": "chart.js/3.7.1",
+      "hashPath": "chart.js.3.7.1.nupkg.sha512"
+    },
     "EntityFramework/6.4.4": {
       "type": "package",
       "serviceable": true,
@@ -393,6 +421,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "SciChart/8.3.0.28019": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Cz9n5RYecKL5yCCT51s90lC97Cq7h29XLHJf9yTqx5/B4Iw1bPv4Z9kmBJ8S2eeExWP0QyN3GYcXbQWk0vElRw==",
+      "path": "scichart/8.3.0.28019",
+      "hashPath": "scichart.8.3.0.28019.nupkg.sha512"
     },
     "Stub.System.Data.SQLite.Core.NetStandard/1.0.118": {
       "type": "package",

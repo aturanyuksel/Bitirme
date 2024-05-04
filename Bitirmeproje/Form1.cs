@@ -6,24 +6,24 @@ namespace Bitirmeproje
 {
     public partial class Form1 : Form
     {
-        
+
         void Listele()
         {
             string sql = "Select * from Bitirme";
             dataGridView1.DataSource = CRUD.Listele(sql);
         }
-       // string program_yolu = Application.StartupPath;
+        // string program_yolu = Application.StartupPath;
 
 
         public Form1()
         {
             InitializeComponent();
-          
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
 
             /* string sqlitedb_constr = "Data source=C:\\Bitirme.db;Version=3;";  //sql baðlantý testi kod satýrý .
              using(var  AC = new SQLiteConnection(connection))
@@ -72,6 +72,20 @@ namespace Bitirmeproje
 
 
                } */
+        }
+        int veriler;
+        private void btn_hesapla_Click(object sender, EventArgs e)
+        {
+            veriler = 1;
+
+            if (veriler == 0)
+            {
+                lbl_analiz.Text = "Null Hipotezi";
+            }
+            else
+            {
+                lbl_analiz.Text = "Alternatif Hipotez";
+            }
         }
     }
 }

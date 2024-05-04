@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WlU2g2dHJTyXqwRS9Pcs93uaX5nX2xxzaW5eJvu3IZpeJEjt+iWPa2ttOb3SGbyAz9TuA/etai+rYZs41cS+SA==",
+  "dgSpecHash": "G+VWPQ7VZzUMFnDTp9rUWyCAamqrNcWK7+uPkFo5uqFnveOBCK/vyyfMoJ021yLlEeVIz86J99FeywwhBShmnA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Turann\\Desktop\\Bitirmeproje\\Bitirmeproje.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Turann\\.nuget\\packages\\chart.js\\3.7.1\\chart.js.3.7.1.nupkg.sha512",
     "C:\\Users\\Turann\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Turann\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Turann\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
@@ -13,6 +14,7 @@
     "C:\\Users\\Turann\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Turann\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Turann\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Turann\\.nuget\\packages\\scichart\\8.3.0.28019\\scichart.8.3.0.28019.nupkg.sha512",
     "C:\\Users\\Turann\\.nuget\\packages\\stub.system.data.sqlite.core.netstandard\\1.0.118\\stub.system.data.sqlite.core.netstandard.1.0.118.nupkg.sha512",
     "C:\\Users\\Turann\\.nuget\\packages\\system.codedom\\4.7.0\\system.codedom.4.7.0.nupkg.sha512",
     "C:\\Users\\Turann\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",

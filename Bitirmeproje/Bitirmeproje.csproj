@@ -9,6 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Properties\DataSources\baglan.datasource" />
+    <None Remove="Properties\DataSources\CRUD.datasource" />
+    <None Remove="Properties\DataSources\Form1.datasource" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Chart.js" Version="3.7.1" />
+    <PackageReference Include="SciChart" Version="8.3.0.28019" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
   </ItemGroup>
 

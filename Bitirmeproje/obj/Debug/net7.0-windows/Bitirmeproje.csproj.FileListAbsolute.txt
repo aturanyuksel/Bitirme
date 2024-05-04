@@ -30,3 +30,7 @@ C:\Users\Turann\Desktop\Bitirmeproje\bin\Debug\net7.0-windows\runtimes\unix\lib\
 C:\Users\Turann\Desktop\Bitirmeproje\bin\Debug\net7.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Turann\Desktop\Bitirmeproje\obj\Debug\net7.0-windows\Bitirmeproje.csproj.AssemblyReference.cache
 C:\Users\Turann\Desktop\Bitirmeproje\obj\Debug\net7.0-windows\Bitirmep.E02914C1.Up2Date
+C:\Users\Turann\Desktop\Bitirmeproje\bin\Debug\net7.0-windows\SciChart.Charting.dll
+C:\Users\Turann\Desktop\Bitirmeproje\bin\Debug\net7.0-windows\SciChart.Core.dll
+C:\Users\Turann\Desktop\Bitirmeproje\bin\Debug\net7.0-windows\SciChart.Data.dll
+C:\Users\Turann\Desktop\Bitirmeproje\bin\Debug\net7.0-windows\SciChart.Drawing.dll
