@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             button1 = new Button();
-            button2 = new Button();
+            btn_anova = new Button();
             cRUDBindingSource = new BindingSource(components);
             baglanBindingSource = new BindingSource(components);
             form1BindingSource = new BindingSource(components);
@@ -51,9 +51,14 @@
             label5 = new Label();
             txt_kadin_b = new TextBox();
             label6 = new Label();
-            label2 = new Label();
             label7 = new Label();
             lbl_anlamlilikdüzeyi = new Label();
+            groupBox3 = new GroupBox();
+            txt_erkek_c = new TextBox();
+            label2 = new Label();
+            txt_kadın_c = new TextBox();
+            label8 = new Label();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cRUDBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)baglanBindingSource).BeginInit();
@@ -61,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)booleanToRotationTransformConverterBindingSource).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -72,32 +78,33 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(375, 380);
+            dataGridView1.Size = new Size(821, 380);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
             button1.BackColor = SystemColors.AppWorkspace;
-            button1.Location = new Point(736, 317);
+            button1.Location = new Point(63, 384);
             button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(194, 51);
+            button1.Size = new Size(498, 51);
             button1.TabIndex = 1;
-            button1.Text = "Verileri Güncelle";
+            button1.Text = "Verileri Güncelle Ve Listele";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // button2
+            // btn_anova
             // 
-            button2.BackColor = SystemColors.AppWorkspace;
-            button2.Location = new Point(736, 384);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(194, 51);
-            button2.TabIndex = 2;
-            button2.Text = "Graik Oluştur";
-            button2.UseVisualStyleBackColor = false;
+            btn_anova.BackColor = SystemColors.AppWorkspace;
+            btn_anova.Location = new Point(843, 378);
+            btn_anova.Margin = new Padding(3, 2, 3, 2);
+            btn_anova.Name = "btn_anova";
+            btn_anova.Size = new Size(194, 51);
+            btn_anova.TabIndex = 2;
+            btn_anova.Text = "Anova Testi";
+            btn_anova.UseVisualStyleBackColor = false;
+            btn_anova.Click += btn_anova_Click;
             // 
             // cRUDBindingSource
             // 
@@ -118,7 +125,7 @@
             // lbl1
             // 
             lbl1.AutoSize = true;
-            lbl1.Location = new Point(763, 227);
+            lbl1.Location = new Point(834, 349);
             lbl1.Name = "lbl1";
             lbl1.Size = new Size(114, 15);
             lbl1.TabIndex = 3;
@@ -127,7 +134,7 @@
             // lbl_analiz
             // 
             lbl_analiz.AutoSize = true;
-            lbl_analiz.Location = new Point(893, 227);
+            lbl_analiz.Location = new Point(964, 349);
             lbl_analiz.Name = "lbl_analiz";
             lbl_analiz.Size = new Size(15, 15);
             lbl_analiz.TabIndex = 4;
@@ -136,7 +143,7 @@
             // btn_hesapla
             // 
             btn_hesapla.BackColor = SystemColors.AppWorkspace;
-            btn_hesapla.Location = new Point(413, 289);
+            btn_hesapla.Location = new Point(843, 284);
             btn_hesapla.Margin = new Padding(3, 2, 3, 2);
             btn_hesapla.Name = "btn_hesapla";
             btn_hesapla.Size = new Size(194, 51);
@@ -148,7 +155,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(397, 227);
+            label1.Location = new Point(827, 222);
             label1.Name = "label1";
             label1.Size = new Size(121, 15);
             label1.TabIndex = 6;
@@ -157,7 +164,7 @@
             // lbl_kikare
             // 
             lbl_kikare.AutoSize = true;
-            lbl_kikare.Location = new Point(532, 227);
+            lbl_kikare.Location = new Point(962, 222);
             lbl_kikare.Name = "lbl_kikare";
             lbl_kikare.Size = new Size(15, 15);
             lbl_kikare.TabIndex = 7;
@@ -203,14 +210,14 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(txt_kadin_a);
             groupBox1.Controls.Add(label3);
-            groupBox1.Location = new Point(396, 9);
+            groupBox1.Location = new Point(826, 4);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
             groupBox1.Size = new Size(298, 105);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
-            groupBox1.Text = "ÜRÜN A";
+            groupBox1.Text = "KOŞUL A";
             // 
             // groupBox2
             // 
@@ -218,14 +225,14 @@
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(txt_kadin_b);
             groupBox2.Controls.Add(label6);
-            groupBox2.Location = new Point(396, 118);
+            groupBox2.Location = new Point(826, 113);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
             groupBox2.Size = new Size(298, 105);
             groupBox2.TabIndex = 13;
             groupBox2.TabStop = false;
-            groupBox2.Text = "ÜRÜN B";
+            groupBox2.Text = "KOŞUL B";
             // 
             // txt_erkek_b
             // 
@@ -261,19 +268,10 @@
             label6.TabIndex = 10;
             label6.Text = "KOŞULB1";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(426, 208);
-            label2.Name = "label2";
-            label2.Size = new Size(121, 15);
-            label2.TabIndex = 14;
-            label2.Text = "Kikare toplamı sonuç:";
-            // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(397, 258);
+            label7.Location = new Point(827, 253);
             label7.Name = "label7";
             label7.Size = new Size(136, 15);
             label7.TabIndex = 15;
@@ -282,20 +280,80 @@
             // lbl_anlamlilikdüzeyi
             // 
             lbl_anlamlilikdüzeyi.AutoSize = true;
-            lbl_anlamlilikdüzeyi.Location = new Point(532, 258);
+            lbl_anlamlilikdüzeyi.Location = new Point(962, 253);
             lbl_anlamlilikdüzeyi.Name = "lbl_anlamlilikdüzeyi";
             lbl_anlamlilikdüzeyi.Size = new Size(15, 15);
             lbl_anlamlilikdüzeyi.TabIndex = 16;
             lbl_anlamlilikdüzeyi.Text = "[]";
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(txt_erkek_c);
+            groupBox3.Controls.Add(label2);
+            groupBox3.Controls.Add(txt_kadın_c);
+            groupBox3.Controls.Add(label8);
+            groupBox3.Location = new Point(1130, 6);
+            groupBox3.Margin = new Padding(3, 2, 3, 2);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Padding = new Padding(3, 2, 3, 2);
+            groupBox3.Size = new Size(298, 105);
+            groupBox3.TabIndex = 13;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "KOŞUL C";
+            // 
+            // txt_erkek_c
+            // 
+            txt_erkek_c.Location = new Point(134, 59);
+            txt_erkek_c.Margin = new Padding(3, 2, 3, 2);
+            txt_erkek_c.Name = "txt_erkek_c";
+            txt_erkek_c.Size = new Size(145, 23);
+            txt_erkek_c.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(10, 61);
+            label2.Name = "label2";
+            label2.Size = new Size(56, 15);
+            label2.TabIndex = 11;
+            label2.Text = "KOŞULC2";
+            // 
+            // txt_kadın_c
+            // 
+            txt_kadın_c.Location = new Point(134, 29);
+            txt_kadın_c.Margin = new Padding(3, 2, 3, 2);
+            txt_kadın_c.Name = "txt_kadın_c";
+            txt_kadın_c.Size = new Size(145, 23);
+            txt_kadın_c.TabIndex = 8;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(10, 30);
+            label8.Name = "label8";
+            label8.Size = new Size(56, 15);
+            label8.TabIndex = 10;
+            label8.Text = "KOŞULC1";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.OrangeRed;
+            label9.Location = new Point(1130, 122);
+            label9.Name = "label9";
+            label9.Size = new Size(288, 15);
+            label9.TabIndex = 17;
+            label9.Text = "NOT: Anova analizi yapmak için 3. koşuluda doldurun";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(973, 431);
+            ClientSize = new Size(1432, 437);
+            Controls.Add(label9);
+            Controls.Add(groupBox3);
             Controls.Add(lbl_anlamlilikdüzeyi);
             Controls.Add(label7);
-            Controls.Add(label2);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(lbl_kikare);
@@ -303,7 +361,7 @@
             Controls.Add(btn_hesapla);
             Controls.Add(lbl_analiz);
             Controls.Add(lbl1);
-            Controls.Add(button2);
+            Controls.Add(btn_anova);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Margin = new Padding(3, 2, 3, 2);
@@ -319,6 +377,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -327,7 +387,7 @@
 
         private DataGridView dataGridView1;
         private Button button1;
-        private Button button2;
+        private Button btn_anova;
         private BindingSource baglanBindingSource;
         private BindingSource cRUDBindingSource;
         private BindingSource form1BindingSource;
@@ -347,8 +407,13 @@
         private Label label5;
         private TextBox txt_kadin_b;
         private Label label6;
-        private Label label2;
         private Label label7;
         private Label lbl_anlamlilikdüzeyi;
+        private GroupBox groupBox3;
+        private TextBox txt_erkek_c;
+        private Label label2;
+        private TextBox txt_kadın_c;
+        private Label label8;
+        private Label label9;
     }
 }

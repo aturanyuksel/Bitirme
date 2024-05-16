@@ -1,103 +1,108 @@
-using Microsoft.VisualBasic.ApplicationServices;
+ï»¿using Microsoft.VisualBasic.ApplicationServices;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Data.SQLite;
+using System.Data;
 
 namespace Bitirmeproje
 {
     public partial class Form1 : Form
     {
-       
+        public static SQLiteConnection connection = new SQLiteConnection("Data source=C:\\Users\\Turann\\Desktop\\bitirmeproje1.db;Version=3;");
 
+        
         void Listele()
         {
-            string sql = "Select * from bitirmeproje";
-            dataGridView1.DataSource = CRUD.Listele(sql);
+          
         }
-        // string program_yolu = Application.StartupPath;
 
+        private void LoadData()
+        {
+            using (SQLiteConnection conn = new SQLiteConnection(connection))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM bitirmeproje111";
+                    SQLiteDataAdapter da = new SQLiteDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Veri yÃ¼klenirken bir hata oluÅŸtu: " + ex.Message);
+                }
+            }
+        }
 
         public Form1()
         {
+
+
             InitializeComponent();
-            Listele();
+          
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
-            /* string sqlitedb_constr = "Data source=C:\\Bitirme.db;Version=3;";  //sql bağlantı testi kod satırı .
-             using(var  AC = new SQLiteConnection(connection))
-             {
-                 try
-                 {
-                     AC.Open();
-                     MessageBox.Show("Veri tabanına baglantı basarıyla gerceklestirildi.");
-                 }
-                 catch (Exception hata)
-                 {
-                     MessageBox.Show("veri tabanına gaglantı saglanamadı!","Hata Mesajı"+hata.Message);
-                     throw;
-                 }
-
-
-             }
-
-
-            /* string yol = Application.StartupPath;
-
-             string databaseyolu = @"Data Source =" + C:\\Users\Turann\Desktop + "\\VeritabaninizinAdi.db3; */     //veri tabanının yolunu her yerde tanımlamamızı sağlar .
-
+            LoadData();
 
         }
-
+        int veri = 1;
         private void button1_Click(object sender, EventArgs e)
         {
-            Listele();  //baglantı yapmamızı  ve verileri listelememizi sağladım . 
-
-            /* string sqlitedb_constr = $"Data source=C:\\apoo.db;Version=3;";   
-
-              using (var baglan = new SQLiteConnection(sqlitedb_constr))
-              {
-                  using (var cmd = new SQLiteCommand("SELECT * FROM users", baglan))
-                  {
-                      cmd.Connection.Open();
-                      SQLiteDataReader dtr = cmd.ExecuteReader();
-                      if (dtr.Read())
-                      {
-                          listBox1.Items.Add(dtr[1] + "" + dtr[2]);
-                          // dataGridView1.DataSource= dtr["ad"].ToString();
-                      }
-
-                  }
-
-
-               } */
+            veri++;
+            using (SQLiteConnection conn = new SQLiteConnection(connection))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "INSERT INTO bitirmeproje111 (d,koulA1,koulA2,koulB1,koulB2,koulC1,koulC2,KKARESONUC,KKARERAPOR,ANOVASONUC) VALUES (@P0,@P1,@P2,@P3,@P4,@P5,@P6,@P7,@P8,@P9)";
+                    SQLiteCommand cmd = new SQLiteCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@P0", veri);
+                    cmd.Parameters.AddWithValue("@P1", kadÄ±nA);
+                    cmd.Parameters.AddWithValue("@P2", erkekA);
+                    cmd.Parameters.AddWithValue("@P3", kadÄ±nB);
+                    cmd.Parameters.AddWithValue("@P4", erkekB);
+                    cmd.Parameters.AddWithValue("@P5", kadinC);
+                    cmd.Parameters.AddWithValue("@P6", erkekC);
+                    cmd.Parameters.AddWithValue("@P7", kikaretoplam);
+                    cmd.Parameters.AddWithValue("@P8", lbl_anlamlilikdÃ¼zeyi.Text);
+                    cmd.Parameters.AddWithValue("@P9", lbl_analiz.Text);
+                    cmd.ExecuteNonQuery();
+                  LoadData();
+                    // Listele();
+                }
+                catch
+                {
+                    MessageBox.Show("veri yÃ¼klenemedi");
+                }
+            }
         }
-        decimal kadınA, erkekA, kadınB, erkekB,hesaplakadınA,hesaplakadınB,hesaplaerkekA,hesaplaerkekB,kikarekadınA,kikarekadınB,kikareerkekA,kikarerekekB,kikaretoplam,serbestlikderecesi;
-       
+        decimal kadÄ±nA, erkekA, kadÄ±nB, erkekB,kadinC,erkekC, hesaplakadÄ±nA, hesaplakadÄ±nB, hesaplaerkekA, hesaplaerkekB, kikarekadÄ±nA, kikarekadÄ±nB, kikareerkekA, kikarerekekB, kikaretoplam, serbestlikderecesi;
+        
 
         private void btn_hesapla_Click(object sender, EventArgs e)
         {
-             kadınA=Convert.ToDecimal(txt_kadin_a.Text);
-             erkekA = Convert.ToDecimal(txt_erkek_a.Text);
-             kadınB = Convert.ToDecimal(txt_kadin_a.Text);
-             erkekB = Convert.ToDecimal(txt_erkek_b.Text);
-            hesaplakadınA=(kadınA+kadınB)*(kadınA+erkekA)/(kadınA+kadınB+erkekA+erkekB);
-            hesaplakadınB = (kadınA + kadınB) * (kadınB + erkekB) / (kadınA + kadınB + erkekA + erkekB);
-            hesaplaerkekA= (erkekA + erkekB) * (kadınA + erkekA) / (kadınA + kadınB + erkekA + erkekB);
-            hesaplaerkekB = (erkekA + erkekB) * (kadınB + erkekA) / (kadınA + kadınB + erkekA + erkekB);
+            kadÄ±nA = Convert.ToDecimal(txt_kadin_a.Text);
+            erkekA = Convert.ToDecimal(txt_erkek_a.Text);
+            kadÄ±nB = Convert.ToDecimal(txt_kadin_a.Text);
+            erkekB = Convert.ToDecimal(txt_erkek_b.Text);
+            hesaplakadÄ±nA = (kadÄ±nA + kadÄ±nB) * (kadÄ±nA + erkekA) / (kadÄ±nA + kadÄ±nB + erkekA + erkekB);
+            hesaplakadÄ±nB = (kadÄ±nA + kadÄ±nB) * (kadÄ±nB + erkekB) / (kadÄ±nA + kadÄ±nB + erkekA + erkekB);
+            hesaplaerkekA = (erkekA + erkekB) * (kadÄ±nA + erkekA) / (kadÄ±nA + kadÄ±nB + erkekA + erkekB);
+            hesaplaerkekB = (erkekA + erkekB) * (kadÄ±nB + erkekA) / (kadÄ±nA + kadÄ±nB + erkekA + erkekB);
 
-            kikarekadınA= (kadınA-hesaplakadınA ) *( kadınA - hesaplakadınA )/ (hesaplakadınA);
-            kikareerkekA= (erkekA-hesaplaerkekA )*( erkekA - hesaplaerkekA) / (hesaplaerkekA);
-            kikarekadınB= (kadınB-hesaplakadınB )* (kadınB - hesaplakadınB )/ (hesaplakadınB);
-            kikarerekekB= (erkekB-hesaplaerkekB )* (erkekB - hesaplaerkekB) / (hesaplaerkekB);
-            kikaretoplam=kikareerkekA+kikarekadınA+kikarekadınB+kikarerekekB;
+            kikarekadÄ±nA = (kadÄ±nA - hesaplakadÄ±nA) * (kadÄ±nA - hesaplakadÄ±nA) / (hesaplakadÄ±nA);
+            kikareerkekA = (erkekA - hesaplaerkekA) * (erkekA - hesaplaerkekA) / (hesaplaerkekA);
+            kikarekadÄ±nB = (kadÄ±nB - hesaplakadÄ±nB) * (kadÄ±nB - hesaplakadÄ±nB) / (hesaplakadÄ±nB);
+            kikarerekekB = (erkekB - hesaplaerkekB) * (erkekB - hesaplaerkekB) / (hesaplaerkekB);
+            kikaretoplam = kikareerkekA + kikarekadÄ±nA + kikarekadÄ±nB + kikarerekekB;
             lbl_kikare.Text = Convert.ToString(kikaretoplam);
-            serbestlikderecesi=(2-1)*(2-1);
-            if (serbestlikderecesi==1)
+            serbestlikderecesi = (2 - 1) * (2 - 1);
+            if (serbestlikderecesi == 1)
             {
-                lbl_anlamlilikdüzeyi.Text = "null hipotezi reddedilir , iki değişken arasında anlamlı bir ilişki vardır";
+                lbl_anlamlilikdÃ¼zeyi.Text = "null hipotezi reddedilir , iki deÄŸiÅŸken arasÄ±nda anlamlÄ± bir iliÅŸki vardÄ±r";
             }
         }
 
@@ -106,5 +111,47 @@ namespace Bitirmeproje
         {
 
         }
+        decimal anovatoplamA, anovatoplamB, anovatoplamC;
+        private void btn_anova_Click(object sender, EventArgs e)
+        {
+            kadÄ±nA = Convert.ToDecimal(txt_kadin_a.Text);
+            erkekA = Convert.ToDecimal(txt_erkek_a.Text);
+            kadÄ±nB = Convert.ToDecimal(txt_kadin_a.Text);
+            erkekB = Convert.ToDecimal(txt_erkek_b.Text);
+            kadinC =Convert.ToDecimal(txt_kadÄ±n_c.Text);
+            erkekC=Convert.ToDecimal(txt_erkek_c.Text);
+            anovatoplamA = kadÄ±nA + erkekA / 2;
+            anovatoplamB=kadÄ±nB+erkekB/2;
+            anovatoplamC=kadinC+erkekC/2;
+            if(anovatoplamA==anovatoplamB & anovatoplamA == anovatoplamC)
+            {
+                lbl_analiz.Text = "ÃœÃ§ farklÄ± koÅŸulunda teste etkisi yoktur .";
+            }
+            else if(anovatoplamA>anovatoplamB || anovatoplamA>anovatoplamC) {
+                lbl_analiz.Text = "KoÅŸul A test iÃ§in farklÄ±lÄ±k oluÅŸturmuÅŸtur ve ARTAN bir eÄŸilim izlemiÅŸtir .";
+            }
+            else if (anovatoplamA < anovatoplamB || anovatoplamA < anovatoplamC)
+            {
+                lbl_analiz.Text = "KoÅŸul A test iÃ§in farklÄ±lÄ±k oluÅŸturmuÅŸtur ve AZALAN bir eÄŸilim izlemiÅŸtir .";
+            }
+            else if (anovatoplamB > anovatoplamA || anovatoplamB > anovatoplamC)
+            {
+                lbl_analiz.Text = "KoÅŸul B test iÃ§in farklÄ±lÄ±k oluÅŸturmuÅŸtur ve ARTAN bir eÄŸilim izlemiÅŸtir .";
+            }
+            else if (anovatoplamB < anovatoplamA || anovatoplamB < anovatoplamC)
+            {
+                lbl_analiz.Text = "KoÅŸul B test iÃ§in farklÄ±lÄ±k oluÅŸturmuÅŸtur ve AZALAN bir eÄŸilim izlemiÅŸtir .";
+            }
+            else if (anovatoplamC > anovatoplamB || anovatoplamC > anovatoplamA)
+            {
+                lbl_analiz.Text = "KoÅŸul C test iÃ§in farklÄ±lÄ±k oluÅŸturmuÅŸtur ve ARTAN bir eÄŸilim izlemiÅŸtir .";
+            }
+            else if (anovatoplamC < anovatoplamB || anovatoplamC < anovatoplamA)
+            {
+                lbl_analiz.Text = "KoÅŸul C test iÃ§in farklÄ±lÄ±k oluÅŸturmuÅŸtur ve AZALAN bir eÄŸilim izlemiÅŸtir .";
+            }
+            else { lbl_analiz.Text = "Test her koÅŸul iÃ§in farklÄ±lÄ±k gÃ¶stermiÅŸtir . "; }
+        }
     }
+
 }
