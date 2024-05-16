@@ -14,8 +14,8 @@ namespace Bitirmeproje
         public static DataTable Listele(string sql)
         {
             dt =new DataTable();
-            SQLiteDataAdapter adtr=new SQLiteDataAdapter(sql,baglan.connection);
-            adtr.Fill(dt);
+            SQLiteDataAdapter adt=new SQLiteDataAdapter(sql,baglan.connection);
+            adt.Fill(dt);
             return dt;
         }
     }

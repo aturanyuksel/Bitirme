@@ -6,10 +6,11 @@ namespace Bitirmeproje
 {
     public partial class Form1 : Form
     {
+       
 
         void Listele()
         {
-            string sql = "Select * from Bitirme";
+            string sql = "Select * from bitirmeproje";
             dataGridView1.DataSource = CRUD.Listele(sql);
         }
         // string program_yolu = Application.StartupPath;
@@ -18,7 +19,7 @@ namespace Bitirmeproje
         public Form1()
         {
             InitializeComponent();
-
+            Listele();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -73,19 +74,37 @@ namespace Bitirmeproje
 
                } */
         }
-        int veriler;
+        decimal kadýnA, erkekA, kadýnB, erkekB,hesaplakadýnA,hesaplakadýnB,hesaplaerkekA,hesaplaerkekB,kikarekadýnA,kikarekadýnB,kikareerkekA,kikarerekekB,kikaretoplam,serbestlikderecesi;
+       
+
         private void btn_hesapla_Click(object sender, EventArgs e)
         {
-            veriler = 1;
+             kadýnA=Convert.ToDecimal(txt_kadin_a.Text);
+             erkekA = Convert.ToDecimal(txt_erkek_a.Text);
+             kadýnB = Convert.ToDecimal(txt_kadin_a.Text);
+             erkekB = Convert.ToDecimal(txt_erkek_b.Text);
+            hesaplakadýnA=(kadýnA+kadýnB)*(kadýnA+erkekA)/(kadýnA+kadýnB+erkekA+erkekB);
+            hesaplakadýnB = (kadýnA + kadýnB) * (kadýnB + erkekB) / (kadýnA + kadýnB + erkekA + erkekB);
+            hesaplaerkekA= (erkekA + erkekB) * (kadýnA + erkekA) / (kadýnA + kadýnB + erkekA + erkekB);
+            hesaplaerkekB = (erkekA + erkekB) * (kadýnB + erkekA) / (kadýnA + kadýnB + erkekA + erkekB);
 
-            if (veriler == 0)
+            kikarekadýnA= (kadýnA-hesaplakadýnA ) *( kadýnA - hesaplakadýnA )/ (hesaplakadýnA);
+            kikareerkekA= (erkekA-hesaplaerkekA )*( erkekA - hesaplaerkekA) / (hesaplaerkekA);
+            kikarekadýnB= (kadýnB-hesaplakadýnB )* (kadýnB - hesaplakadýnB )/ (hesaplakadýnB);
+            kikarerekekB= (erkekB-hesaplaerkekB )* (erkekB - hesaplaerkekB) / (hesaplaerkekB);
+            kikaretoplam=kikareerkekA+kikarekadýnA+kikarekadýnB+kikarerekekB;
+            lbl_kikare.Text = Convert.ToString(kikaretoplam);
+            serbestlikderecesi=(2-1)*(2-1);
+            if (serbestlikderecesi==1)
             {
-                lbl_analiz.Text = "Null Hipotezi";
+                lbl_anlamlilikdüzeyi.Text = "null hipotezi reddedilir , iki deðiþken arasýnda anlamlý bir iliþki vardýr";
             }
-            else
-            {
-                lbl_analiz.Text = "Alternatif Hipotez";
-            }
+        }
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
